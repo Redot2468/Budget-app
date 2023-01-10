@@ -38,6 +38,11 @@ h2 {
   font-weight: 500;
 }
 
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 3rem;
+}
 /* heading */
 .heading {
   color: var(--color-primary);
@@ -125,24 +130,44 @@ h2 {
 /* budget block */
 .budget__block .fields {
   margin-bottom: 4rem;
+  margin-top: 4rem;
+}
+
+@media screen and (min-width: 768px) {
+  .budget__block .fields {
+    margin-top: 0;
+  }
 }
 
 /* inputs block */
 .inputs__block {
+  margin-top: 7rem;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
+  column-gap: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .inputs__block {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* prices */
+.prices__block {
+  margin-top: 8rem;
+  border: 1px solid green;
+}
 .prices {
   text-align: center;
 }
 .prices i {
-  font-size: 3rem;
+  font-size: 3.3rem;
 }
 
 .mini__heading {
   margin-top: 1.5rem;
+  font-size: 3.3rem;
 }
 
 .amounts {
@@ -153,7 +178,7 @@ h2 {
 }
 
 .budget__price i {
-  padding: 1rem 1.5rem;
+  padding: 1rem 1.7rem;
   border-radius: 100%;
   background: rgb(0, 196, 186);
   color: white;
@@ -174,21 +199,26 @@ h2 {
 }
 
 /* expenses heaader - footer section */
+.things__bought-block {
+  margin-top: 7rem;
+}
 
 .expenses__heading {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   background: rgb(217, 245, 243);
-  border: 1px solid green;
-  padding: 1rem 4rem;
+  padding: 2rem 4rem;
 }
 
 .expenses__heading i {
-  margin-right: 4rem;
+  margin-right: 1rem;
   cursor: pointer;
 }
 
+.icons {
+  border: 1px solid green;
+}
 .fa-pencil {
   color: blue;
 }
@@ -206,11 +236,17 @@ h2 {
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   background: rgb(242, 241, 243);
-  border: 1px solid green;
-  padding: 1rem 4rem;
+  padding: 1.5rem 4rem;
 }
 
 .expenses__bought .description {
   color: black;
   font-weight: 400;
+}
+
+@media screen and (min-width: 768px) {
+  .expenses__heading i {
+    margin-right: 5rem;
+    cursor: pointer;
+  }
 }

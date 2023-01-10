@@ -17,7 +17,110 @@
   </head>
   <body>
     <!-- scripts -->
+    <div class="container">
+      <!-- header -->
+      <header>
+        <h1 class="heading">Budget App</h1>
+      </header>
+      <!-- main body -->
+      <main>
+        <!-- fields block -->
 
+        <div class="inputs__block">
+          <!-- expenses -->
+          <form action="" class="expenses__block">
+            <div class="fields amount">
+              <i class="fa-solid fa-dollar-sign"></i>
+              <input
+                type="text"
+                class="input__field amount__field"
+                id="amount__field"
+                name="amount__field"
+                placeholder="Amount"
+                required
+              />
+            </div>
+
+            <div class="fields description">
+              <i class="fa-solid fa-file"></i>
+              <input
+                type="text"
+                class="input__field description__field"
+                id="description__field"
+                name="description__field"
+                placeholder="Description"
+                required
+              />
+            </div>
+
+            <button type="submit" class="btn expense__btn">
+              Add expense <i class="fa-solid fa-share"></i>
+            </button>
+          </form>
+
+          <!-- budget -->
+          <form action="" class="budget__block">
+            <div class="fields budget">
+              <i class="fa-solid fa-file"></i>
+              <input
+                type="text"
+                class="input__field budget__field"
+                id="budget__field"
+                name="budget__field"
+                placeholder="Budget"
+                required
+              />
+            </div>
+            <button type="submit" class="btn budget__btn">
+              Add budget <i class="fa-solid fa-floppy-disk"></i>
+            </button>
+          </form>
+        </div>
+
+        <!-- budget expenses balance field -->
+
+        <div class="prices__block grid grid__1x2">
+          <div class="prices budget__price">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <h2 class="mini__heading budget__field">Budget</h2>
+            <p class="amounts budget__amount">0</p>
+          </div>
+
+          <!-- expense -->
+          <div class="prices expenses__price">
+            <i class="fa-solid fa-suitcase"></i>
+            <h2 class="mini__heading expense__field">Expenses</h2>
+            <p class="amounts expenses__amount">0</p>
+          </div>
+
+          <!-- balance -->
+          <div class="prices balance__price">
+            <i class="fa-solid fa-wallet"></i>
+            <h2 class="mini__heading balance__field">Balance</h2>
+            <p class="amounts balance__amount">0</p>
+          </div>
+        </div>
+
+        <footer>
+        <!-- items bought -->
+        <div class="things__bought-block">
+            <div class="expenses__heading">
+              <p class="description">Description</p>
+              <p class="description">Amount</p>
+              <div class="icons">
+                <i class="fa-solid fa-pencil"></i>
+                <i class="fa-solid fa-trash"></i>
+              </div>
+            </div>
+
+            <!-- clearbutton -->
+            <button class="btn clear__btn" id="clear__btn">
+                Clear All Data <i class="fa-solid fa-trash"></i>
+              </button>
+              
+        </footer>
+      </main>
+    </div>
     <script src="./js/main.js"></script>
   </body>
 </html>
