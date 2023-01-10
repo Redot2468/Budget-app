@@ -68,6 +68,14 @@ h2 {
   cursor: pointer;
 }
 
+.clear__btn .fa-trash {
+  color: white;
+}
+
+#clear__btn {
+  background: rgb(201, 0, 0);
+  margin-top: 4rem;
+}
 /* grid */
 .grid {
   display: grid;
@@ -173,10 +181,12 @@ h2 {
   gap: 2rem;
   background: rgb(217, 245, 243);
   border: 1px solid green;
+  padding: 1rem 4rem;
 }
 
 .expenses__heading i {
   margin-right: 4rem;
+  cursor: pointer;
 }
 
 .fa-pencil {
@@ -189,4 +199,18 @@ h2 {
 
 .description {
   color: var(--color-primary);
+}
+
+.expenses__bought {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  background: rgb(242, 241, 243);
+  border: 1px solid green;
+  padding: 1rem 4rem;
+}
+
+.expenses__bought .description {
+  color: black;
+  font-weight: 400;
 }
