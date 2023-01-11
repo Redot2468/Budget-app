@@ -26,11 +26,12 @@ const itemsBlock = document.querySelector(".things__bought-block");
 addExpenseBtn.addEventListener("click", e => {
     e.preventDefault();
     
-    itemDesc.unshift({description: descriptionField.value, amount: parseFloat(amountField.value)});
+    itemDesc.push({description: descriptionField.value, amount: parseFloat(amountField.value)});
     expenses.push(parseFloat(amountField.value));
     getBudgetExpenseAndBalance();
-    
-
+    AddExpenses();
+   amountField.value = "";
+   descriptionField.value = "";
 })
 
 // getting the total budget, expense and balance
@@ -66,4 +67,47 @@ function getBudgetExpenseAndBalance(){
 
         
 }
+
+// for adding the item bought under the description block
+const thingsBought = document.querySelector(".things__bought-block")
+function AddExpenses(){
+    let itemsDescription;
+    let IndexNo = 0;
+ 
+    itemDesc.forEach(item => {
+        itemsDescription = `<div class="expenses__bought">
+               <p class="description">${++IndexNo}</p>
+                   <p class="description">${item.description}</p>
+                   <p class="description">${item.amount}</p>
+                   <div class="icons">
+                   <i class="fa-solid fa-pencil"></i>
+                   <i class="fa-solid fa-trash"></i>
+                   </div>
+               </div>`
+   })
+
+
+    thingsBought.innerHTML += itemsDescription;
+}
+
+// to edit an item
+window.addEventListener("click", e => {
+
+    const iconEdit = document.querySelectorAll(".fa-pencil");
+        iconEdit.forEach(icon => {
+            
+            icon.addEventListener("click", e => {
+                
+                let iconGrandParent = icon.parentElement.parentElement;
+                let containDefault = icon.classList.contains("default")
+                   
+                if(!containDefault){
+                    iconGrandParent.style.display = "none"
+                }
+            
+            })
+        })
+     
+    
+})
 
