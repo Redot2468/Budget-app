@@ -1,10 +1,5 @@
 let itemDesc = [];
 
-
-
-
-
-
 // for the budget block
 const budgetField = document.querySelector(".budget__field");
 const budgetAmount = document.querySelector(".budget__amount");
@@ -91,7 +86,7 @@ function AddExpenses(){
     thingsBought.innerHTML += itemsDescription;
 }
 
-
+// to clear all data
 const clearBtn = document.querySelector(".clear__btn");
 const descriptionHead = document.querySelectorAll(".thing");
 clearBtn.addEventListener("click", e => {
