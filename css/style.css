@@ -39,7 +39,7 @@ h2 {
 }
 
 .container {
-  max-width: 1100px;
+  max-width: 1000px;
   margin: auto;
   padding: 3rem;
 }
@@ -204,7 +204,7 @@ h2 {
 
 .expenses__heading {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 0.2fr 1fr 1fr;
   background: rgb(217, 245, 243);
   padding: 2rem 1rem;
 }
@@ -231,7 +231,7 @@ h2 {
 
 .expenses__bought {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 0.2fr 1fr 1fr;
   background: rgb(249, 249, 250);
   padding: 1.5rem 4rem;
 }

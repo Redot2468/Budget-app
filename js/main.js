@@ -76,12 +76,12 @@ function getBudgetExpenseAndBalance(){
 const thingsBought = document.querySelector(".things__bought-block")
 function AddExpenses(){
     let itemsDescription;
-    let index;
+    let index = 0;
     
  
     itemDesc.forEach(item => {
         itemsDescription = `<div class="expenses__bought">
-        <p class="description">${index++}</p>
+        <p class="description">${++index}</p>
                    <p class="description">${item.description}</p>
                    <p class="description">${item.amount}</p>
                </div>`
