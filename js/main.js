@@ -1,5 +1,5 @@
 let itemDesc = [];
-let expenses = [];
+
 
 
 
@@ -27,18 +27,19 @@ addExpenseBtn.addEventListener("click", e => {
     e.preventDefault();
     
     itemDesc.push({description: descriptionField.value, amount: parseFloat(amountField.value)});
-    expenses.push(parseFloat(amountField.value));
     getBudgetExpenseAndBalance();
     AddExpenses();
    amountField.value = "";
    descriptionField.value = "";
 })
 
+let amountExpense = 0;
+let budgetValue = 0;
 // getting the total budget, expense and balance
 function getBudgetExpenseAndBalance(){
     // budget 
 
-    let budgetValue = budgetField.value; 
+     budgetValue = budgetField.value; 
     let valueOfBudget;
    
     if(budgetValue === ""){
@@ -54,8 +55,11 @@ function getBudgetExpenseAndBalance(){
    }
 
     // expense
-    let amountExpense = 0;
-        amountExpense = expenses.reduce((a, b) => a + b);
+  
+        amountExpense = itemDesc.reduce((a, b) => {
+            return a + b.amount;
+          }, 0);
+          
         expenseAmount.textContent = `$${parseFloat(amountExpense).toFixed(2)}`;
           
         // balance
@@ -72,17 +76,14 @@ function getBudgetExpenseAndBalance(){
 const thingsBought = document.querySelector(".things__bought-block")
 function AddExpenses(){
     let itemsDescription;
-    let IndexNo = 0;
+    let index;
+    
  
     itemDesc.forEach(item => {
         itemsDescription = `<div class="expenses__bought">
-               <p class="description">${++IndexNo}</p>
+        <p class="description">${index++}</p>
                    <p class="description">${item.description}</p>
                    <p class="description">${item.amount}</p>
-                   <div class="icons">
-                   <i class="fa-solid fa-pencil"></i>
-                   <i class="fa-solid fa-trash"></i>
-                   </div>
                </div>`
    })
 
@@ -90,24 +91,28 @@ function AddExpenses(){
     thingsBought.innerHTML += itemsDescription;
 }
 
-// to edit an item
-window.addEventListener("click", e => {
 
-    const iconEdit = document.querySelectorAll(".fa-pencil");
-        iconEdit.forEach(icon => {
-            
-            icon.addEventListener("click", e => {
-                
-                let iconGrandParent = icon.parentElement.parentElement;
-                let containDefault = icon.classList.contains("default")
-                   
-                if(!containDefault){
-                    iconGrandParent.style.display = "none"
-                }
-            
-            })
-        })
-     
-    
+const clearBtn = document.querySelector(".clear__btn");
+const descriptionHead = document.querySelectorAll(".thing");
+clearBtn.addEventListener("click", e => {
+reset();
 })
+
+function reset(){
+    descriptionField.value = "";
+    amountField.value = "";
+    budgetField.value = "";
+    itemDesc = [];
+    amountExpense = 0;
+    expenseAmount.textContent = `$${parseFloat(amountExpense).toFixed(2)}`;
+    budgetValue = 0;
+    budgetAmount.textContent = `$${parseFloat(budgetValue).toFixed(2)}`;
+    balance = 0;
+    balanceAmount.textContent = `$${balance.toFixed(2)}`;
+    thingsBought.innerHTML += '';
+    let nod = thingsBought.children;
+    for(let i = 1; i <= nod.length; i++){
+        nod[i].style.display = "none";
+    }
+}
 
